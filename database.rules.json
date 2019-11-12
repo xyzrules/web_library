@@ -1,6 +1,24 @@
 {
   "rules": {
-    ".read": true,
-    ".write": true
+    "book":{
+        ".read": true,
+        ".write": "auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'",
+    },
+    "book_author":{
+        ".read": true,
+        ".write": "auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'"
+    },
+    "book_genre":{
+        ".read": true,
+        ".write": "auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'"
+    },
+    "order": {
+      "$uid": {
+        // Allow only authenticated content owners access to their data
+        ".read": "auth.uid == $uid || auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'",
+        ".write": "auth.uid == $uid || auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'"
+      }
+    }
+    
   }
 }
