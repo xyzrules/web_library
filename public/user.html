@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <nav class = "navbar navbar-default navbar-fixed-top">
+    <nav class = "navbar navbar-default navbar-fixed-top" style = "background-color: lightblue;">
       <div class = "container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -24,7 +24,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="#" id = "index-page">HOME</a></li>
+            <li><a href="index.html" id = "index-page">HOME</a></li>
             <li><a href="showbook.html" id = "show-book-page">BOOKS</a></li>
             <li><a href="contact.html" id = "contact-page">CONTACT</a></li>
           </ul>
@@ -38,15 +38,26 @@
       </div>
     </nav>
 
-    <div class = "jumbotron text-center">
-      <h1>LIBRARY APP</h1>
-      <p>An online library for your sake</p>
+    <div class = "jumbotron text-center" style = "background-color: lightblue;">
+      <h1>YOUR PAGE</h1>
+      <p>This is your information on a web page. Happy?</p>
     </div>
     <div class = "container">
       <div class = "row">
-          <p>A library web app which allows users to add and borrow books online.</p>
-          <p>Uses <strong>Firebase Authentication</strong> to keep user information and <strong>Firebase Realtime Database</strong> for books and borrow orders.</p>
-          <p>Also has an online link using <strong>Firebase Hosting URL</strong> <a href="https://some-project-nvd.firebaseapp.com/">here.</a></p>
+        <h2>BOOKS BORROWING HISTORY</h2>
+      </div>
+      <div class = "row">
+        <table class = "table table-striped">
+          <thead>
+            <tr>
+              <th>Book Name</th>
+              <th>Borrow Date</th>
+              <th>Return Date</th>
+            </tr>
+          </thead>
+          <tbody id = "user-history-table-body">
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -141,6 +152,8 @@
     <!-- initialize the SDK after all desired features are loaded -->
     <script src="/__/firebase/init.js"></script>
     <script type="text/javascript" src = "js/aio.js"></script>
+    <script type="text/javascript" src = "js/user.js"></script>
+
 
   </body>
 </html>

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/aio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  </head>
+    
 
+  </head>
   <body>
+
     <nav class = "navbar navbar-default navbar-fixed-top">
       <div class = "container">
         <div class="navbar-header">
@@ -20,12 +22,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Logo</a>
+          <a class="navbar-brand" href="index.html">Logo</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="#" id = "index-page">HOME</a></li>
-            <li><a href="showbook.html" id = "show-book-page">BOOKS</a></li>
+            <li><a href="index.html" id = "index-page">HOME</a></li>
+            <li><a href="#" id = "show-book-page">BOOKS</a></li>
             <li><a href="contact.html" id = "contact-page">CONTACT</a></li>
           </ul>
           <div>
@@ -39,14 +41,40 @@
     </nav>
 
     <div class = "jumbotron text-center">
-      <h1>LIBRARY APP</h1>
-      <p>An online library for your sake</p>
+      <h1>BOOK LIST</h1>
+      <p>Just skim through and pick what you want.<br>
+      And yes, if you are wondering: It is that easy.
+      </p>
+      <form class = "form-inline">
+        <div class ="input-group">
+          <input type="text" class = "form-control" name="book-input" id="book-input" placeholder="Type keywords here" size = "60">
+          <div class = "input-group-btn">
+            <button type="button" class = "btn btn-success" id = "book-search-btn" onclick = "bookFilter()">Search</button>
+          </div>
+        </div>
+      </form>
     </div>
+
     <div class = "container">
+
+      <div class = "text-center">
+        <h2>All Books</h2>
+      </div>
+
+      <div class = "row equal">
+        <div id = "content-filter">
+          <!-- Search content added here -->
+        </div>
+        <div id = "content-error">
+        </div>
+      </div>
+
       <div class = "row">
-          <p>A library web app which allows users to add and borrow books online.</p>
-          <p>Uses <strong>Firebase Authentication</strong> to keep user information and <strong>Firebase Realtime Database</strong> for books and borrow orders.</p>
-          <p>Also has an online link using <strong>Firebase Hosting URL</strong> <a href="https://some-project-nvd.firebaseapp.com/">here.</a></p>
+        <div class = "col-lg-offset-9 col-sm-offset-8 col-sm-4 col-lg-3">
+          <button type="button" class = "btn btn-info" id = "book-search-btn" onclick = "window.location = 'database.html'; ">
+            <h2 style = "font-weight: bold; text-decoration: underline;">ADD NEW BOOK</h2>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -131,6 +159,50 @@
       </div>
     </div>
 
+<!-- Book ordering modal -->
+    <div class="modal fade book-order-modal" tabindex="-1" role="dialog" aria-labelledby="book-order-modal" aria-hidden="true" id="book-order-modal">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Order</h4>
+          </div>
+          <div class="modal-body" id="order-modal-body">
+            <div class = "row">
+              <div class = "col-sm-6 col-lg-4 text-center">
+                <img src = "https://via.placeholder.com/240x300">
+              </div>
+              <div class = "col-sm-5 col-lg-8">
+                <div class = "row">
+                  <div class = "col-sm-11">
+                    <h2 id = "modal-book-name"></h2>
+                  </div>
+                </div>
+                <div class = "row">
+                  <div class = "col-sm-11">
+                    <p id = "modal-book-information"></p>
+                    <p><strong>NOTE: YOU MUST RETURN THE BOOK 14 DAYS.</strong></p>
+                    <p><strong>AFTER 14 DAYS, GO TO THE LIBRARY TO EXTEND BORROWING PERIOD.</strong></p>
+                  </div>
+                </div>
+                <div class = "row">
+                  <div class = "form-group col-sm-6">
+                    <label for = "borrow-date" class = "control-label">Borrow Date:</label>
+                    <input type = "text" class = "form-control" name = "borrow-date" id = "borrow-date" placeholder="DD/MM/YYYY">
+                  </div>
+                  <span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" id="order-modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
 <!-- update the version number as needed -->
     <script src="/__/firebase/6.6.0/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -140,7 +212,23 @@
     <script src="/__/firebase/6.6.0/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script src="/__/firebase/init.js"></script>
-    <script type="text/javascript" src = "js/aio.js"></script>
-
+    <script type = "text/javascript" src = "js/aio.js"></script>
+    <script type = "text/javascript" src = "js/showbook.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    
+    <script>
+      $(document).ready(function(){
+        var date_input=$('input[name="borrow-date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        var options={
+          format: 'dd/mm/yyyy',
+          container: container,
+          todayHighlight: true,
+          autoclose: true,
+          minDate: 0,
+        };
+        date_input.datepicker(options);
+      })
+    </script>
   </body>
 </html>

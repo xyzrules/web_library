@@ -1,0 +1,39 @@
+label {
+	width: 150px;
+	float: left;
+}
+
+textarea {
+	width: 250px;
+}
+
+.jumbotron {
+	padding: 80px 25px;
+	background-color: orange;
+}
+
+.navbar{
+	background-color: orange;
+	margin-bottom: 0;
+	border-radius: 0;
+	border: 0;
+}
+
+.navbar li a{
+	font-weight: bold;
+}
+
+.container-fluid {
+	padding: 60px 50px;
+}
+
+@media (min-width: 1600px) {
+  .container {
+    width: 1550px;
+  }
+}
+
+.modal-lg {
+	width: 75%;
+}
+

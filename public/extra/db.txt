@@ -1,0 +1,146 @@
+//books
+{
+	"book": {
+		"bookId = 123": {
+			"name": "Some Book",
+			"author": {
+				"oneId":555 ,
+				"twoId":... ,
+			},
+			"genre":{
+				"genreOne": true,
+				"genreTwo": true,
+			},
+			"information": "Add text here",
+		},
+		"bookId = 124": {
+			...
+		}
+	}
+}
+
+//book - authors
+
+{
+	"book_author": {
+		"bookId": {
+			"authorId" : true,
+			"..." : true
+		},
+		"...": {
+
+		}
+	}
+}
+
+//book - genres
+
+{
+	"book_genre": {
+		"bookId": {
+			"genreId" : true,
+			"..." : true
+		},
+		"...": {
+
+		}
+	}
+}
+
+//authors
+{
+	"author": {
+		"authorId = 555": {
+			"name": "Omega Lul",
+			"information": "Add text here",
+		},
+		"authorId = ...": {
+			...
+		}
+	}
+}
+
+//authors - book
+{
+	"author_book": {
+		"authorId = 555": {
+			"123" : true,
+			"..." : true,
+			... ,
+		},
+		"authorId = ...": {
+			...
+		}
+	}
+}
+
+//book - copies
+//true/false for available/not available
+{
+	"book_copy": {
+		"123": {
+			"1234": true,
+			"1235": false,
+		}
+
+	}
+}
+
+//copies
+{	
+	"copy":{
+		"copyId = 1234": {
+			"bookId": 123,
+			"information": "Add text here",
+		},
+		"copyId = ...": {
+			...
+		}
+	}
+}
+
+//borrowing
+
+{
+	"borrow":{
+		"borrowId = 9999": {
+			"copyId": 1234,
+			"borrowDate": ,
+			"expectedDate": ,
+			"returnDate": ,
+			"uid": ua124hu0uih1uu3... ,
+		}, 
+		"borrowTwo" : {...},
+	}
+}
+
+
+//genres
+
+{
+	"genre":{
+		"genreId = 0000": {
+			"information": ...,
+		},
+		"genreId = 0001": {
+
+		},
+	}
+}
+
+
+//genre - books
+
+{
+	"genre_book":{
+		"genreId = 0000": {
+			"bookId = ...": ...,
+			"bookId = ...": ...,
+			"bookId = ...": ...,
+		},
+		"genreId = 0001": {
+			"bookId = ...": ...,
+			"bookId = ...": ...,
+		},
+	}
+}
