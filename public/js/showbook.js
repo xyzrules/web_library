@@ -5,6 +5,7 @@ var input = document.getElementById("book-input");
 var numChild;
 var dataArr = new Array();
 var idArr = new Array();
+var storage = firebase.storage();
 
 
 //Add an order to database
@@ -45,6 +46,17 @@ function openOrderModal(bookId){
 	);
 }
 
+function showBookPic(n){
+	var storageRef = storage.ref('books/' + n);
+	storageRef.getDownloadURL().then(function(url){
+		console.log(url);
+		document.getElementById('book-img-' + n).src = url;
+	}).catch(function(error){
+		console.log(error);
+	});
+
+}
+
 function bookFilter(){
 	//Filter book with a search bar
 	var filter = input.value.toUpperCase();
@@ -56,10 +68,9 @@ function bookFilter(){
 	content.textContent = null;
 
 	//Create panel for each book found
-	for (var i = 0; i < numChild; ++i){
+	for (var i = 0; i < numChild; i++){
 		if (dataArr[i].name.toUpperCase().indexOf(filter) > -1){
 			found = true;
-
 			content.insertAdjacentHTML('beforeend', 
 			'<div id = "book-id-1" class = "card col-xs-6 col-sm-4 col-md-3 col-lg-2">' +  
 				'<div class="panel panel-default text-center">' +
@@ -67,7 +78,7 @@ function bookFilter(){
 			          	'<h3>' + dataArr[i].name + '</h3>' +
 			        '</div>' +
 			        '<div class="panel-body">' +
-			          	'<img src = "https://via.placeholder.com/120x150">' +
+			          	'<img id = "book-img-' + idArr[i] + '" width = "120" height = "150">' +
 			          	'<p>' + dataArr[i].information + '</p>' +
 			        '</div>' +
 			        '<div class="panel-footer">' +
@@ -80,7 +91,7 @@ function bookFilter(){
 			    '</div>' +
 			'</div>');
 		}
-		
+		showBookPic(i);
 	}
 
 	//Show error message if no books contain the key words
@@ -90,6 +101,8 @@ function bookFilter(){
 	else {
 		errorMess.textContent = null;
 	}
+
+	
 
 }
 
@@ -103,6 +116,7 @@ function showBookInit(){
 			console.log(childSnapshot.key);
 			dataArr.push(childSnapshot.val());
 			console.log(childSnapshot.val());
+			
 		});
 		document.getElementById("book-search-btn").textContent = "Search";
 		bookFilter();

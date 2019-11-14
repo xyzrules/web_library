@@ -3,6 +3,7 @@ var action = "";
 
 function authInit(){
   document.getElementById('sign-in').disabled = true;
+  
 	app.auth().onAuthStateChanged(function(user) {
 	  if (user) {
 	     // User is signed in.
@@ -47,23 +48,29 @@ function handleSignIn() {
       alert('Please enter a password.');
       return;
     }
-    // Sign in with email and pass.
-    // [START authwithemail]
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      	// Handle Errors here.
-      	var errorCode = error.code;
-      	var errorMessage = error.message;
-      	// [START_EXCLUDE]
-      	if (errorCode === 'auth/wrong-password') {
-        	alert('Wrong password.');
-      	} else {
-        	alert(errorMessage);
-      	}
-    	console.log(error);
-    	document.getElementById('sign-in').disabled = false;
-      // [END_EXCLUDE]
+    
+
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(function() {
+      // Sign in with email and pass.
+      // [START authwithemail]
+      return firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } else {
+            alert(errorMessage);
+          }
+        console.log(error);
+        document.getElementById('sign-in').disabled = false;
+        // [END_EXCLUDE]
+      });
+      // [END authwithemail]
     });
-    // [END authwithemail]
+
+    
 }
 
 function handleSignOut(){

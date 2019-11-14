@@ -2,21 +2,21 @@
   "rules": {
     "book":{
         ".read": true,
-        ".write": "auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'",
+        ".write": "auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2' || auth.uid == 'jpEksasp5tVmgNIfsjkiKmns6nB2'",
     },
     "book_author":{
         ".read": true,
-        ".write": "auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'"
+        ".write": "auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2' || auth.uid == 'jpEksasp5tVmgNIfsjkiKmns6nB2'"
     },
     "book_genre":{
         ".read": true,
-        ".write": "auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'"
+        ".write": "auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2' || auth.uid == 'jpEksasp5tVmgNIfsjkiKmns6nB2'"
     },
     "order": {
       "$uid": {
         // Allow only authenticated content owners access to their data
-        ".read": "auth.uid == $uid || auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'",
-        ".write": "auth.uid == $uid || auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2'"
+        ".read": "auth.uid == $uid || auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2' || auth.uid == 'jpEksasp5tVmgNIfsjkiKmns6nB2'",
+        ".write": "auth.uid == $uid || auth.uid == '5C9qcCSRZ8a0A9PbwzsmTG58spP2' || auth.uid == 'jpEksasp5tVmgNIfsjkiKmns6nB2'"
       }
     }
     
