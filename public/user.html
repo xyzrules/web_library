@@ -1,42 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/aio.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>User</title>
+    <link rel="stylesheet" href="css/aio.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <nav class = "navbar navbar-default navbar-fixed-top" style = "background-color: lightblue;">
-      <div class = "container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Logo</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-left">
-            <li><a href="index.html" id = "index-page">HOME</a></li>
-            <li><a href="showbook.html" id = "show-book-page">BOOKS</a></li>
-            <li><a href="contact.html" id = "contact-page">CONTACT</a></li>
-          </ul>
-          <div>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#" data-toggle = "modal" data-target = "#sign-in-modal" id = "sign-in">Log In</a></li>
-              <li><a href="#" data-toggle = "modal" data-target = "#sign-up-modal" id = "sign-up">Sign Up</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <!---navigation-->
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="showbook.html">Booklist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Our Team</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                     <li class="nav-item">
+                         <a class="nav-link" href="index.html" id="brand"><img src="img/SelbyvilleLibrary_Logo_no_text.png" />&nbsp &nbsp KNOW HOPE LIBRARY</a>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#sign-in-modal" id="sign-in">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#sign-up-modal" id="sign-up">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </section>
 
     <div class = "jumbotron text-center" style = "background-color: lightblue;">
       <h1>YOUR PAGE</h1>
@@ -141,7 +152,13 @@
         </div>
       </div>
     </div>
-
+    <section id="footer">
+        <div class="container text-center">
+            <p>A library web app which allows users to add and borrow books online.</p>
+            <p>Uses <strong>Firebase Authentication</strong> to keep user information and <strong>Firebase Realtime Database</strong> for books and borrow orders.</p>
+            <p>Also has an online link using <strong>Firebase Hosting URL</strong> <a href="https://some-project-nvd.firebaseapp.com/">here.</a></p>
+        </div>
+    </section>
 <!-- update the version number as needed -->
     <script src="/__/firebase/6.6.0/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->

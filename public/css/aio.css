@@ -1,39 +1,156 @@
-label {
-	width: 150px;
-	float: left;
+*{
+margin: 0;
+padding:0;
+
 }
 
-textarea {
-	width: 250px;
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 2px 2px 10px black;
 }
-
-.jumbotron {
-	padding: 80px 25px;
-	background-color: orange;
+.nav-link img{
+height: 40px;
+padding-left: 30px;
 }
-
+.navbar-nav li{
+padding: 0 10px;
+}
+.navbar-nav li a{
+float: right;
+text-align: left;
+}
+#nav-bar ul li a:hover{
+color: #007bff!important;
+} 
 .navbar{
-	background-color: orange;
-	margin-bottom: 0;
-	border-radius: 0;
-	border: 0;
+background: #fff;
+}
+.navbar-toggler{
+border: none!important;
+}
+.nav-link{
+color:#555!important;
+font-weight: 600;
+font-size: 16px; 
+}
+.progress-bar{
+border-radius:16px;
+ 
+}
+.progress{
+border-radius:16px!important;
+   
+}
+#team{
+padding-top: 50px;
+padding-bottom:50px;
+color: #555;
+}
+h1{
+text-align:center;
+color:#555!important;
+padding-bottom:10px;
+}
+h1:after{
+content: '';
+background: #007bff;
+display:block;
+height:3px;
+width:170px;
+margin: 20px auto 5px;
+}
+.profile-pic{
+margin-top:25px;
+   
+}
+.profile-pic .img-box{
+opacity:1;
+display:block;
+position:relative;
+}
+.profile-pic h2 {
+font-size: 22px;
+font-weight: bold;
+margin-top: 15px;
+color: #007bff !important;
+text-align: center;
+}
+.profile-pic h3 {
+font-size: 22px;
+font-weight: bold;
+color: #555 !important;
+text-align: center;
+}
+.profile-pic h4 {
+font-size: 20px;
+font-weight: bold;
+margin-top: 15px;
+margin-bottom: 15px;
+color: #555 !important;
+text-align: center;
+}
+#footer {
+background: #333;
+color: #fff;
+padding: 12px;
+width:100%;
+}
+.intro{
+font-size:16px;
+}
+.input-group {
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+#book-search-btn {
+background-color: #007bff;
+width: 120px;
+font-weight: bold;
+cursor: pointer;
+text-shadow: 0.5px 0.5px 1px grey;
+transition: 300ms;
+}
+#book-search-btn:hover {
+background-color: White;
+color: #007bff;
+box-shadow: inset 0 0 0 3px #007bff;
+}
+#accept-sign-in {
+background-color: #007bff;
+font-weight: bold;
+color:white;
+cursor: pointer;
+text-shadow: 0.5px 0.5px 1px grey;
+transition: 300ms;
+}
+#accept-sign-in:hover {
+background-color: White;
+color: #007bff;
+box-shadow: inset 0 0 0 3px #007bff;
+}
+#accept-sign-up {
+background-color: #007bff;
+font-weight: bold;
+color: white;
+cursor: pointer;
+text-shadow: 0.5px 0.5px 1px grey;
+transition: 300ms;
 }
 
-.navbar li a{
-	font-weight: bold;
+#accept-sign-up:hover {
+    background-color: White;
+    color: #007bff;
+    box-shadow: inset 0 0 0 3px #007bff;
+}
+#brand {
+    font-size: 30px;
+    font-family: 'Odibee Sans', cursive;
+    font-weight: bold;
 }
 
-.container-fluid {
-	padding: 60px 50px;
+#content-filter {
+    width : 100%;
 }
-
-@media (min-width: 1600px) {
-  .container {
-    width: 1550px;
-  }
-}
-
-.modal-lg {
-	width: 75%;
-}
-

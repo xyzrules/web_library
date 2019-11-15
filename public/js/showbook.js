@@ -72,24 +72,26 @@ function bookFilter(){
 		if (dataArr[i].name.toUpperCase().indexOf(filter) > -1){
 			found = true;
 			content.insertAdjacentHTML('beforeend', 
-			'<div id = "book-id-1" class = "card col-xs-6 col-sm-4 col-md-3 col-lg-2">' +  
-				'<div class="panel panel-default text-center">' +
-			        '<div class="panel-heading">' +
-			          	'<h3>' + dataArr[i].name + '</h3>' +
-			        '</div>' +
-			        '<div class="panel-body">' +
-			          	'<img id = "book-img-' + idArr[i] + '" width = "120" height = "150">' +
-			          	'<p>' + dataArr[i].information + '</p>' +
-			        '</div>' +
-			        '<div class="panel-footer">' +
-			          	'<button class="btn btn-lg order-btn"' +
-			          	' data-toggle = "modal" data-target = "#book-order-modal"' + 
-			          	' id = "order-id-' + i + '"' +
-			          	' onclick = "openOrderModal(' + i + ')"' +
-			          	'>Order</button>' +
-			        '</div>' +
-			    '</div>' +
-			'</div>');
+				'<div class = "col-6 col-lg-3 col-md-4">' +
+					'<div id = "book-id-' + i + '" class = "card text-center">' +  
+				        '<div class="card-header">' +
+				          	'<h3>' + dataArr[i].name + '</h3>' +
+				        '</div>' +
+				        '<div class="card-body">' +
+				          	'<img id = "book-img-' + idArr[i] + '" width = "120" height = "150">' +
+				          	'<p>' + dataArr[i].information + '</p>' +
+				        '</div>' +
+				        '<div class="card-footer">' +
+				          	'<button class="btn btn-lg order-btn"' +
+				          	' data-toggle = "modal" data-target = "#book-order-modal"' + 
+				          	' id = "order-id-' + i + '"' +
+				          	' onclick = "openOrderModal(' + i + ')"' +
+				          	'>Order</button>' +
+				        '</div>' +
+					'</div>' +
+				'</div>' 
+
+			);
 		}
 		showBookPic(i);
 	}

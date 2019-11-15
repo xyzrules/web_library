@@ -36,6 +36,7 @@ function addAuthor(){
 	);
 
 	deleteBtn.setAttribute("class", "btn btn-warning form-control");
+	deleteBtn.removeAttribute("hidden");
 }
 
 function deleteAuthor(){
@@ -50,7 +51,7 @@ function deleteAuthor(){
 		authorList.removeChild (authorLastChild);
 
 	if (authorNum == 2){
-		deleteBtn.setAttribute("class", "hidden");
+		deleteBtn.setAttribute("hidden", "");
 	}
 }
 
@@ -69,6 +70,7 @@ function addGenre(){
 	);
 
 	deleteBtn.setAttribute("class", "btn btn-warning form-control");
+	deleteBtn.removeAttribute("hidden");
 }
 
 function deleteGenre(){
@@ -83,7 +85,7 @@ function deleteGenre(){
 		genreList.removeChild (genreLastChild);
 
 	if (genreNum == 2){
-		deleteBtn.setAttribute("class", "hidden");
+		deleteBtn.setAttribute("hidden", "");
 	}
 }
 
