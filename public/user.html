@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-  <head>
-    <meta charset="utf-8">
-    <title>User</title>
-    <link rel="stylesheet" href="css/aio.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
-  </head>
+<head>
+<meta charset="utf-8">
+<title>User</title>
+<link rel="stylesheet" href="css/aio.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet">
+</head>
 
-  <body>
+<body>
     <!---navigation-->
     <section id="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-light ">
-            
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                   
+
                     <li class="nav-item">
                         <a class="nav-link" href="showbook.html">Booklist</a>
                     </li>
@@ -31,11 +31,11 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                     <li class="nav-item">
-                         <a class="nav-link" href="index.html" id="brand"><img src="img/SelbyvilleLibrary_Logo_no_text.png" />&nbsp &nbsp KNOW HOPE LIBRARY</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" id="brand"><img src="img/SelbyvilleLibrary_Logo_no_text.png" />&nbsp &nbsp KNOW HOPE LIBRARY</a>
                     </li>
                 </ul>
-                
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#sign-in-modal" id="sign-in">Log In</a>
@@ -49,108 +49,132 @@
         </nav>
     </section>
 
-    <div class = "jumbotron text-center" style = "background-color: lightblue;">
-      <h1>YOUR PAGE</h1>
-      <p>This is your information on a web page. Happy?</p>
+    <div class="jumbotron text-center">
+        <h1>YOUR PAGE</h1>
+        <p>This is your information on a web page. Happy?</p>
     </div>
-    <div class = "container">
-      <div class = "row">
-        <h2>BOOKS BORROWING HISTORY</h2>
-      </div>
-      <div class = "row">
-        <table class = "table table-striped">
-          <thead>
-            <tr>
-              <th>Book Name</th>
-              <th>Borrow Date</th>
-              <th>Return Date</th>
-            </tr>
-          </thead>
-          <tbody id = "user-history-table-body">
-          </tbody>
-        </table>
-      </div>
+    <div class="container">
+        <div class="row">
+            <h2>BOOKS BORROWING HISTORY</h2>
+        </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Borrow Date</th>
+                        <th>Return Date</th>
+                    </tr>
+                </thead>
+                <tbody id="user-history-table-body">
+                </tbody>
+            </table>
+        </div>
     </div>
 
-<!-- Sign in modal -->
+    <!-- Sign in modal -->
     <div class="modal fade sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="sign-in-modal" aria-hidden="true" id="sign-in-modal">
-      <div class="modal-dialog">
+        <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Log In</h4>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" name="email" class="email form-control" id = "email-sign-in">
-              </div>
-              <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" name="password" class="password form-control" id = "password-sign-in">
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" id='accept-sign-in' data-dismiss = "modal">Accept</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Log In</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" name="email" class="email form-control" id="email-sign-in">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" name="password" class="password form-control" id="password-sign-in">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id='accept-sign-in' data-dismiss="modal">Accept</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-
-<!-- Sign up modal -->
+    <!-- Sign up modal -->
     <div class="modal fade sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-modal" aria-hidden="true" id="sign-up-modal">
-      <div class="modal-dialog">
+        <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Sign Up</h4>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" name="email" class="email form-control" id = "email-sign-up">
-              </div>
-              <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" name="password" class="password form-control" id = "password-sign-up">
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" id='accept-sign-up'>Accept</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sign Up</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" name="email" class="email form-control" id="email-sign-up">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" name="password" class="password form-control" id="password-sign-up">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id='accept-sign-up'>Accept</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-<!-- Sign out modal -->
+    <!-- Sign out modal -->
     <div class="modal fade sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="sign-out-modal" aria-hidden="true" id="sign-out-modal">
-      <div class="modal-dialog">
+        <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Signing out of your account</h4>
-          </div>
-          <div class="modal-body">
-            <p>Are you sure?</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" id='accept-sign-out' data-dismiss = "modal">Sign Out</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Signing out of your account</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id='accept-sign-out' data-dismiss="modal">Sign Out</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+
+    <!-- Sign out modal -->
+    <div class="modal fade sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="sign-out-modal" aria-hidden="true" id="sign-out-modal">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Signing out of your account</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id='accept-sign-out' data-dismiss="modal">Sign Out</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
     <section id="footer">
         <div class="container text-center">
@@ -159,7 +183,7 @@
             <p>Also has an online link using <strong>Firebase Hosting URL</strong> <a href="https://some-project-nvd.firebaseapp.com/">here.</a></p>
         </div>
     </section>
-<!-- update the version number as needed -->
+    <!-- update the version number as needed -->
     <script src="/__/firebase/6.6.0/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
     <script src="/__/firebase/6.6.0/firebase-auth.js"></script>
@@ -168,9 +192,9 @@
     <script src="/__/firebase/6.6.0/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script src="/__/firebase/init.js"></script>
-    <script type="text/javascript" src = "js/aio.js"></script>
-    <script type="text/javascript" src = "js/user.js"></script>
+    <script type="text/javascript" src="js/aio.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
 
 
-  </body>
+</body>
 </html>
