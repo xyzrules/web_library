@@ -14,14 +14,14 @@ function bookOrder(bookId){
 	var uid = firebase.auth().currentUser.uid;
 
 	orderRef.child(uid).once('value').then(function(snapshot){
-		orderRef.child(uid).child(snapshot.numChildren()).update ({
+		orderIdRef = orderRef.child(uid).push();
+		orderIdRef.set({
 			'bookId': [bookId],
 			'borrowDate': [borrowDate],
 			'returnDate': 'pending',
 		});
 		console.log("Done order?");
 	});
-
 }
 
 //Fix modal for each book
@@ -30,6 +30,7 @@ function openOrderModal(bookId){
 	var orderModalFooter = document.getElementById('order-modal-footer');
 	var modalBookName = document.getElementById('modal-book-name');
 	var modalBookInformation = document.getElementById('modal-book-information');
+	var modalBookPic = document.getElementById('modal-book-pic');
 	//Set up body
 
 	modalBookName.textContent = dataArr[bookId].name;
@@ -44,12 +45,21 @@ function openOrderModal(bookId){
 		' onclick = "bookOrder(' + idArr[bookId] + ')"' +
 		'>Accept</button>'
 	);
+
+	//Set up picture
+	storageRef = storage.ref ('books/' + idArr[bookId]);
+	storageRef.getDownloadURL().then(function(url){
+		console.log ("modal image for: " + idArr[bookId]);
+		modalBookPic.src = url;
+	}).catch(function(error){
+		console.log(error);
+	});
 }
 
 function showBookPic(n){
 	var storageRef = storage.ref('books/' + n);
 	storageRef.getDownloadURL().then(function(url){
-		console.log(url);
+		console.log ('image for ' + n);
 		document.getElementById('book-img-' + n).src = url;
 	}).catch(function(error){
 		console.log(error);
@@ -78,7 +88,7 @@ function bookFilter(){
 				          	'<h3>' + dataArr[i].name + '</h3>' +
 				        '</div>' +
 				        '<div class="card-body">' +
-				          	'<img id = "book-img-' + idArr[i] + '" width = "120" height = "150">' +
+				          	'<img id = "book-img-' + idArr[i] + '" width = "160" height = "285">' +
 				          	'<p>' + dataArr[i].information + '</p>' +
 				        '</div>' +
 				        '<div class="card-footer">' +
@@ -115,9 +125,7 @@ function showBookInit(){
 	  	numChild = snapshot.numChildren();
 		snapshot.forEach(function (childSnapshot){
 			idArr.push(childSnapshot.key);
-			console.log(childSnapshot.key);
 			dataArr.push(childSnapshot.val());
-			console.log(childSnapshot.val());
 			
 		});
 		document.getElementById("book-search-btn").textContent = "Search";

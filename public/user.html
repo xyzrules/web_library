@@ -50,27 +50,91 @@
     </section>
 
     <div class="jumbotron text-center">
-        <h1>YOUR PAGE</h1>
-        <p>This is your information on a web page. Happy?</p>
+        <h1>YOUR PROFILE</h1>
+        <p>Welcome to Know Hope</p>
     </div>
-    <div class="container">
-        <div class="row">
-            <h2>BOOKS BORROWING HISTORY</h2>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <h2>YOUR INFORMATION</h2>
+            </div>
         </div>
         <div class="row">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Book Name</th>
-                        <th>Borrow Date</th>
-                        <th>Return Date</th>
-                    </tr>
-                </thead>
-                <tbody id="user-history-table-body">
-                </tbody>
+            <table class="table table-bordered" id="user-inf">
+                <tr>
+                    <th style="width: 25%">Name</th>
+                    <td></td>
+                    <td style="width: 20%"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%">User ID</th>
+                    <td></td>
+                    <td style="width: 20%"></td>
+                </tr>
+                <tr>
+                    <th style="width: 25%">Email</th>
+                    <td></td>
+                    <td style="width: 20%">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-success" id="book-search-btn">Reset</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 25%">Password</th>
+                    <td></td>
+                    <td style="width: 20%">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-success" id="book-search-btn">Reset</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 25%">Address</th>
+                    <td></td>
+                    <td style="width: 20%">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-success" id="book-search-btn">Reset</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width: 25%">Resident ID</th>
+                    <td></td>
+                    <td style="width: 20%">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-success" id="book-search-btn">Reset</button>
+                        </div>
+                    </td>
+                </tr>
+
             </table>
         </div>
-    </div>
+    </section>
+    <hr>
+    
+    <section>
+        <div class="container">
+            <div class="row">
+                <h2>BOOKS BORROWING HISTORY</h2>
+            </div>
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Book Name</th>
+                            <th>Borrow Date</th>
+                            <th>Return Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-history-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
     <!-- Sign in modal -->
     <div class="modal fade sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="sign-in-modal" aria-hidden="true" id="sign-in-modal">
@@ -102,6 +166,7 @@
             </div>
         </div>
     </div>
+
     <!-- Sign up modal -->
     <div class="modal fade sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-modal" aria-hidden="true" id="sign-up-modal">
         <div class="modal-dialog">
@@ -155,27 +220,29 @@
         </div>
     </div>
 
-    <!-- Sign out modal -->
-    <div class="modal fade sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="sign-out-modal" aria-hidden="true" id="sign-out-modal">
-        <div class="modal-dialog">
+    <!-- Delete modal -->
+      <div class="modal fade delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true" id="delete-modal">
+          <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Signing out of your account</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">Delete order</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
 
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" id='accept-sign-out' data-dismiss="modal">Sign Out</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                  <div class="modal-body">
+                      <p id = "delete-order-data"></p>
+                  </div>
+
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" id='accept-delete-order' data-dismiss="modal">Delete</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
     <section id="footer">
         <div class="container text-center">
             <p>A library web app which allows users to add and borrow books online.</p>
@@ -183,6 +250,7 @@
             <p>Also has an online link using <strong>Firebase Hosting URL</strong> <a href="https://some-project-nvd.firebaseapp.com/">here.</a></p>
         </div>
     </section>
+
     <!-- update the version number as needed -->
     <script src="/__/firebase/6.6.0/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->

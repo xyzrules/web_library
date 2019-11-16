@@ -5,13 +5,22 @@ padding:0;
 }
 #nav-item{
     display:flex;
+}
+
+#slider {
+    min-height:auto;
+    min-width:auto;
+    margin: 5px 15% 0px 15%;
+}
+.carousel-inner{
+    height:660px;
 
 }
 #nav-bar {
-position: sticky;
-top: 0;
-z-index: 10;
-box-shadow: 2px 2px 10px black;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 2px 2px 10px black;
 }
 .nav-link img{
 height: 40px;
@@ -36,7 +45,7 @@ border: none!important;
 .nav-link{
 color:#555!important;
 font-weight: 600;
-font-size: 16px; 
+font-size: 16px;
 }
 .progress-bar{
 border-radius:16px;
@@ -151,8 +160,10 @@ box-shadow: inset 0 0 0 3px #007bff;
 #brand {
 position:absolute;
 font-size: 30px;
-left:570px;
-top:0px;
+text-align: center;
+left: 30%;
+right: 32%;
+top: 0px;
 bottom:5px;
 
 font-family: 'Odibee Sans', cursive;
@@ -173,4 +184,7 @@ transition: 300ms;
     background-color: white;
     color: forestgreen;
     box-shadow: inset 0 0 0 3px forestgreen;
+}
+#user-inf {
+    margin: 5px 20% 0px 20%;
 }
