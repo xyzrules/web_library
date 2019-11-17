@@ -122,6 +122,7 @@ function addBook(){
 				var authorArray; 
 
 				for (var i = 0; i < authorNum; ++i){
+					console.log(i);
 					var authorNameId = document.getElementById("author-name-" + (i + 1)).value;
 					bookAuthorRef.child(newBookRef.key).update ({
 						 [authorNameId] : true,
