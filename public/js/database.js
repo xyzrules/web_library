@@ -1,7 +1,5 @@
 var numChild;
-var database = firebase.database();
 var bookRef = database.ref('book');
-var storage = firebase.storage();
 
 function databaseInit(){
 	document.getElementById("add-book-author").addEventListener("click", addAuthor);
@@ -95,94 +93,88 @@ function addBook(){
 	var bookGenreRef = database.ref('book_genre');
 	var storageRef = storage.ref();
 
-	bookRef.once('value').then(function(snapshot) {
-	  	numChild = snapshot.numChildren();
+  	var newBookRef = bookRef.push();
 
-	  	var newBookRef = bookRef.child(numChild);
-
-		//work with book name + information (easy)
-		var bookName = document.getElementById("book-name").value;
-		var bookInformation = document.getElementById("book-information").value;
+	//work with book name + information (easy)
+	var bookName = document.getElementById("book-name").value;
+	var bookInformation = document.getElementById("book-information").value;
 
 
-		//Checking permission
-		newBookRef.set({
-			'name' : bookName,
-			'information' : bookInformation
-		}, function (error) {
-			if (error) {
-				//Stop all other changes
-				alert (error.toString());
-			}
-			else {
-				//Make changes to other db
-				//work with author
-				var authorList = document.getElementById("author-list");
-				var authorNum = authorList.childNodes.length;
-				var authorArray; 
+	//Checking permission
+	newBookRef.set({
+		'name' : bookName,
+		'information' : bookInformation
+	}, function (error) {
+		if (error) {
+			//Stop all other changes
+			alert (error.toString());
+		}
+		else {
+			//Make changes to other db 
+			//work with author
+			var authorList = document.getElementById("author-list");
+			var authorNum = authorList.childNodes.length;
+			var authorArray; 
 
-				for (var i = 0; i < authorNum; ++i){
-					console.log(i);
-					var authorNameId = document.getElementById("author-name-" + (i + 1)).value;
-					bookAuthorRef.child(newBookRef.key).update ({
-						 [authorNameId] : true,
-					});
-				}
-
-				//work with genre
-				var genreList = document.getElementById("genre-list");
-				var genreNum = genreList.childNodes.length;
-				var genreArray; 
-
-				for (var i = 0; i < genreNum; ++i){
-					var genreNameId = document.getElementById("genre-name-" + (i + 1)).value;
-					bookGenreRef.child(newBookRef.key).update ({
-						 [genreNameId] : true,
-					});
-				}
-
-				//work with picture
-				var pic = document.getElementById('book-pic').files[0];
-				
-				console.log(pic);
-
-				var metadata = {
-					contentType: 'image/jpeg'
-				};
-
-				var uploadTask = storageRef.child('books/' + numChild).put(pic, metadata);
-
-				// Listen for state changes, errors, and completion of the upload.
-				uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-				  function(snapshot) {
-				    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-				    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-				    console.log('Upload is ' + progress + '% done');
-				    switch (snapshot.state) {
-				      case firebase.storage.TaskState.PAUSED: // or 'paused'
-				        console.log('Upload is paused');
-				        break;
-				      case firebase.storage.TaskState.RUNNING: // or 'running'
-				        console.log('Upload is running');
-				        break;
-				    }
-				  }, function(error) {
-				  	alert (error);
-				}, function() {
-				  // Upload completed successfully, now we can get the download URL
-				  uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-				    console.log('File available at', downloadURL);
-				  });
-				  alert ("We got your new book.");
-				  window.location = "showbook.html";
+			for (var i = 0; i < authorNum; ++i){
+				console.log(i);
+				var authorNameId = document.getElementById("author-name-" + (i + 1)).value;
+				bookAuthorRef.child(newBookRef.key).update ({
+					 [authorNameId] : true,
 				});
-
-				
 			}
-		});
+
+			//work with genre
+			var genreList = document.getElementById("genre-list");
+			var genreNum = genreList.childNodes.length;
+			var genreArray; 
+
+			for (var i = 0; i < genreNum; ++i){
+				var genreNameId = document.getElementById("genre-name-" + (i + 1)).value;
+				bookGenreRef.child(newBookRef.key).update ({
+					 [genreNameId] : true,
+				});
+			}
+
+			//work with picture
+			var pic = document.getElementById('book-pic').files[0];
+			
+			console.log(pic);
+
+			var metadata = {
+				contentType: 'image/jpeg'
+			};
+
+			var uploadTask = storageRef.child('books/' + newBookRef.key).put(pic, metadata);
+
+			// Listen for state changes, errors, and completion of the upload.
+			uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+			  function(snapshot) {
+			    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+			    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+			    console.log('Upload is ' + progress + '% done');
+			    switch (snapshot.state) {
+			      case firebase.storage.TaskState.PAUSED: // or 'paused'
+			        console.log('Upload is paused');
+			        break;
+			      case firebase.storage.TaskState.RUNNING: // or 'running'
+			        console.log('Upload is running');
+			        break;
+			    }
+			  }, function(error) {
+			  	alert (error);
+			}, function() {
+			  // Upload completed successfully, now we can get the download URL
+			  uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+			    console.log('File available at', downloadURL);
+			  });
+			  alert ("We got your new book.");
+			  window.location = "showbook.html";
+			});
+		}
+	});
 
 		
-	});
 }
 
 

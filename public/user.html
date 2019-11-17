@@ -64,52 +64,28 @@
             <table class="table table-bordered" id="user-inf">
                 <tr>
                     <th style="width: 25%">Name</th>
-                    <td></td>
-                    <td style="width: 20%"></td>
-                </tr>
-                <tr>
-                    <th style="width: 25%">User ID</th>
-                    <td></td>
-                    <td style="width: 20%"></td>
+                    <td id = 'user-inf-username'></td>
                 </tr>
                 <tr>
                     <th style="width: 25%">Email</th>
-                    <td></td>
-                    <td style="width: 20%">
-                        <div class="input-group-btn">
-                            <button type="button" class="btn btn-success" id="book-search-btn">Reset</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="width: 25%">Password</th>
-                    <td></td>
-                    <td style="width: 20%">
-                        <div class="input-group-btn">
-                            <button type="button" class="btn btn-success" id="book-search-btn">Reset</button>
-                        </div>
-                    </td>
+                    <td id = 'user-inf-email'></td>
                 </tr>
                 <tr>
                     <th style="width: 25%">Address</th>
-                    <td></td>
-                    <td style="width: 20%">
-                        <div class="input-group-btn">
-                            <button type="button" class="btn btn-success" id="book-search-btn">Reset</button>
-                        </div>
-                    </td>
+                    <td id = 'user-inf-address'></td>
                 </tr>
                 <tr>
                     <th style="width: 25%">Resident ID</th>
-                    <td></td>
-                    <td style="width: 20%">
-                        <div class="input-group-btn">
-                            <button type="button" class="btn btn-success" id="book-search-btn">Reset</button>
-                        </div>
-                    </td>
+                    <td id = 'user-inf-rid'></td>
                 </tr>
 
             </table>
+        </div>
+        <div class = "row">
+            <div class = "offset-7">
+              <button class = "btn btn-warning" data-toggle = 'modal' data-target = '#update-modal'>Change Info</button>
+              <button class = "btn btn-danger" data-toggle = 'modal' data-target = '#change-password-modal'>Change Password</button>
+            </div>
         </div>
     </section>
     <hr>
@@ -126,7 +102,7 @@
                             <th>Book Name</th>
                             <th>Borrow Date</th>
                             <th>Return Date</th>
-                            <th></th>
+                            <!--<th></th>-->
                         </tr>
                     </thead>
                     <tbody id="user-history-table-body">
@@ -137,88 +113,105 @@
     </section>
 
     <!-- Sign in modal -->
-    <div class="modal fade sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="sign-in-modal" aria-hidden="true" id="sign-in-modal">
-        <div class="modal-dialog">
+      <div class="modal fade sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="sign-in-modal" aria-hidden="true" id="sign-in-modal">
+          <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Log In</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">Log In</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="email">Email address:</label>
-                            <input type="email" name="email" class="email form-control" id="email-sign-in">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" name="password" class="password form-control" id="password-sign-in">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" id='accept-sign-in' data-dismiss="modal">Accept</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="form-group">
+                              <label for="email">Email address:</label>
+                              <input type="email" name="email" class="email form-control" id="email-sign-in">
+                          </div>
+                          <div class="form-group">
+                              <label for="pwd">Password:</label>
+                              <input type="password" name="password" class="password form-control" id="password-sign-in">
+                          </div>
+                          <div class="modal-footer">
+                              <button type="submit" class="btn btn-default" id='accept-sign-in' data-dismiss="modal">Accept</button>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    
     <!-- Sign up modal -->
-    <div class="modal fade sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-modal" aria-hidden="true" id="sign-up-modal">
-        <div class="modal-dialog">
+      <div class="modal fade sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-modal" aria-hidden="true" id="sign-up-modal">
+          <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Sign Up</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">Sign Up</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="email">Email address:</label>
-                            <input type="email" name="email" class="email form-control" id="email-sign-up">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" name="password" class="password form-control" id="password-sign-up">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" id='accept-sign-up'>Accept</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                  </div>
+
+                  <div class="modal-body">
+                      <form>
+                          <div class="form-group">
+                              <label for="username">Your name:</label>
+                              <input type="text" name="username" class="text form-control" id="username-sign-up">
+                          </div>
+                          <div class="form-group">
+                              <label for="email">Email address:</label>
+                              <input type="email" name="email" class="email form-control" id="email-sign-up">
+                          </div>
+                          <div class="form-group">
+                              <label for="password-sign-up">Password:</label>
+                              <input type="password" name="password" class="password form-control" id="password-sign-up">
+                          </div>
+                          <div class="form-group">
+                              <label for="re-password-sign-up">Confirm password:</label>
+                              <input type="password" name="re-password" class="password form-control" id="re-password-sign-up">
+                          </div>
+                          <div class="form-group">
+                              <label for="address">Address:</label>
+                              <input type="text" name="address" class="text form-control" id="address-sign-up">
+                          </div>
+                          <div class="form-group">
+                              <label for="rid">Resident ID:</label>
+                              <input type="text" name="rid" class="text form-control" id="rid-sign-up">
+                          </div>
+                          <div class="modal-footer">
+                              <button type="submit" class="btn btn-default" id="accept-sign-up" data-dismiss="modal">Accept</button>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
 
     <!-- Sign out modal -->
-    <div class="modal fade sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="sign-out-modal" aria-hidden="true" id="sign-out-modal">
-        <div class="modal-dialog">
+      <div class="modal fade sign-out-modal" tabindex="-1" role="dialog" aria-labelledby="sign-out-modal" aria-hidden="true" id="sign-out-modal">
+          <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Signing out of your account</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">Signing out of your account</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" id='accept-sign-out' data-dismiss="modal">Sign Out</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                  </div>
+                  <div class="modal-body">
+                      <p>Are you sure?</p>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" id='accept-sign-out' data-dismiss="modal">Sign Out</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
 
     <!-- Delete modal -->
       <div class="modal fade delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal" aria-hidden="true" id="delete-modal">
@@ -236,8 +229,74 @@
                   </div>
 
                   <div class="modal-footer">
-                      <button type="button" class="btn btn-default" id='accept-delete-order' data-dismiss="modal">Delete</button>
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-danger" id='accept-delete-order' data-dismiss="modal">Delete</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    <!-- Update modal -->
+      <div class="modal fade update-modal" tabindex="-1" role="dialog" aria-labelledby="update-modal" aria-hidden="true" id="update-modal">
+          <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">Update your information</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="form-group">
+                              <label for="username">Your name:</label>
+                              <input type="text" name="username" class="text form-control" id="username-update">
+                          </div>
+                          <div class="form-group">
+                              <label for="address">Address:</label>
+                              <input type="text" name="address" class="text form-control" id="address-update">
+                          </div>
+                          <div class="form-group">
+                              <label for="rid">Resident ID:</label>
+                              <input type="text" name="rid" class="text form-control" id="rid-update">
+                          </div>
+                          <div class="modal-footer">
+                              <button type="submit" class="btn btn-success" id='accept-update' data-dismiss="modal" onclick="updateInfo()">Accept</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    <!-- Password modal -->
+      <div class="modal fade password-modal" tabindex="-1" role="dialog" aria-labelledby="change-password-modal" aria-hidden="true" id="change-password-modal">
+          <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">Change your password:</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                          <div class="form-group">
+                              <label for="new-password">New password:</label>
+                              <input type="password" name="new-password" class="password form-control" id="new-change-password">
+                          </div>
+                          <div class="form-group">
+                              <label for="re-new-password">Confirm password:</label>
+                              <input type="password" name="re-new-password" class="password form-control" id="re-new-change-password">
+                          </div>
+                          <div class="modal-footer">
+                              <button type="submit" class="btn btn-success" id='accept-change-password' data-dismiss="modal" onclick = "changePassword()">Change</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                      </form>
                   </div>
               </div>
           </div>
@@ -252,12 +311,12 @@
     </section>
 
     <!-- update the version number as needed -->
-    <script src="/__/firebase/6.6.0/firebase-app.js"></script>
+    <script src="/__/firebase/7.4.0/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
-    <script src="/__/firebase/6.6.0/firebase-auth.js"></script>
-    <script src="/__/firebase/6.6.0/firebase-database.js"></script>
-    <script src="/__/firebase/6.6.0/firebase-messaging.js"></script>
-    <script src="/__/firebase/6.6.0/firebase-storage.js"></script>
+    <script src="/__/firebase/7.4.0/firebase-auth.js"></script>
+    <script src="/__/firebase/7.4.0/firebase-database.js"></script>
+    <script src="/__/firebase/7.4.0/firebase-messaging.js"></script>
+    <script src="/__/firebase/7.4.0/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script src="/__/firebase/init.js"></script>
     <script type="text/javascript" src="js/aio.js"></script>
