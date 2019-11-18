@@ -9,6 +9,10 @@ var idArr = new Array();
 function bookOrder(bookId){
 	var borrowDate = document.getElementById("borrow-date").value;
 	var uid = firebase.auth().currentUser.uid;
+	if (borrowDate < 1){
+		alert("Please insert borrow date.");
+		return;
+	}
 
 	orderRef.child(uid).once('value').then(function(snapshot){
 		orderIdRef = orderRef.child(uid).push();

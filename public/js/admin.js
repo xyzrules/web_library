@@ -14,7 +14,7 @@ function changePassword(){
 	else {
 		user.updatePassword(password).then(function() {
 		  alert('Password change successful.');
-		  location.reload();
+		  findUser();
 		}).catch(function(error) {
 		  alert(error.message);
 		});
@@ -35,7 +35,7 @@ function updateOrder(uid, orderId){
 		returnDate: [today],
 	}).then(function(){
 		alert('Change order successful.');
-		location.reload();
+		findUser();
 	}).catch(function(error){
 		alert(error.message);
 	});
@@ -44,20 +44,23 @@ function updateOrder(uid, orderId){
 
 function deleteOrder(uid, orderId){
 	var deleteRef = database.ref('order/' + uid + '/' + orderIdArr[orderId]);
-	
+	console.log(uid);
+	console.log(orderId);
 	deleteRef.remove().then(function(){
-		window.location = "user.html";
+		alert('Delete order successful');
+		findUser();
 	}). catch(function(error){
 		alert(error.message);
 	});
 }
 
 function showOrderModal(uid, orderId){
+	console.log(uid);
 	console.log(orderId);
 	var orderData = document.getElementById('delete-order-data');
 	var orderDeleteButton = document.getElementById('accept-delete-order');
 
-	orderDeleteButton.setAttribute ('onclick' , 'deleteOrder('+ uid + ', ' + orderId + ')');
+	orderDeleteButton.setAttribute ('onclick' , 'deleteOrder(\''+ uid + '\',' + orderId + ')');
 	orderData.textContent = 'Delete order for ' + dataArr[orderId].name + ' at ' + orderArr[orderId].borrowDate + 	'?';
 }
 
@@ -88,6 +91,7 @@ function showOrders(uid){
 
 		var userHistoryTableBody = document.getElementById("user-history-table-body");
 		//show order info
+		userHistoryTableBody.textContent = null;
 		for (var i = 0; i < orderNum; ++i){
 			var bookRef = database.ref('book/' + orderArr[i].bookId);
 			bookRef.once('value').then(function(bookSnapshot){
