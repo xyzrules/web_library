@@ -301,6 +301,15 @@
     <script type="text/javascript" src="js/aio.js"></script>
     <script type="text/javascript" src="js/admin.js"></script>
 
+    <script>
+          var input = document.getElementById("user-email-input");
+          input.addEventListener("keypress", function (event) {
+              if (event.keyCode === 13) {
+                  event.preventDefault();
+                  document.getElementById("user-search-btn").click();
+              }
+          });
+      </script>
 
 </body>
 </html>

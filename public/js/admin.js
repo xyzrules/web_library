@@ -84,6 +84,7 @@ function showOrders(uid){
 		orderNum = orderSnapshot.numChildren();
 		orderArr = new Array();
 		orderIdArr = new Array();
+		dataArr = new Array();
 		orderSnapshot.forEach(function (orderChildSnapshot){
 			orderArr.push(orderChildSnapshot.val());
 			orderIdArr.push(orderChildSnapshot.key);
@@ -91,8 +92,9 @@ function showOrders(uid){
 
 		var userHistoryTableBody = document.getElementById("user-history-table-body");
 		//show order info
-		userHistoryTableBody.textContent = null;
+		userHistoryTableBody.textContent = ""	;
 		for (var i = 0; i < orderNum; ++i){
+
 			var bookRef = database.ref('book/' + orderArr[i].bookId);
 			bookRef.once('value').then(function(bookSnapshot){
 				dataArr.push(bookSnapshot.val());
